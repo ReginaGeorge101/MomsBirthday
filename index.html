@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mom!</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, purple, yellow, pink);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .button {
+    background-color: yellow;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 20px;
+    transition: opacity 0.5s;
+  }
+  .button:hover {
+    opacity: 0.8;
+  }
+  .hidden {
+    display: none;
+  }
+  #birthdayTitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    animation: bounce 0.5s;
+  }
+  @keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  #birthdayText {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+  }
+  #giftButton {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  #giftText {
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <button id="pressMeButton" class="button">Press me</button>
+  <h1 id="birthdayTitle" class="hidden">Happy Birthday!</h1>
+  <p id="birthdayText" class="hidden">I love you very much mom and you've helped me through all of my life and I'd like to thank you for everything.</p>
+  <button id="giftButton" class="button hidden">Press me also!</button>
+<p id="giftText" class="hidden">Come to me and ask me what your prize is, you'll see :)</p>
+</div>
+<script>
+  document.getElementById("pressMeButton").addEventListener("click", function() {
+    this.style.display = "none";
+    document.getElementById("birthdayTitle").classList.remove("hidden");
+    document.getElementById("birthdayText").classList.remove("hidden");
+    document.getElementById("giftButton").classList.remove("hidden");
+    document.getElementById("giftButton").style.opacity = "1";
+  });
+
+  document.getElementById("giftButton").addEventListener("click", function() {
+    this.style.display = "none";
+    document.getElementById("birthdayTitle").textContent = "Birthday Gift";
+    document.getElementById("birthdayTitle").classList.add("hidden");
+    document.getElementById("birthdayText").classList.add("hidden");
+    document.getElementById("giftText").style.display = "block";
+  });
+</script>
+</body>
+</html>
